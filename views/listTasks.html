@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<style>
+    table#tb1{
+        width:100%;
+    }
+
+    table#tb1 th{
+        background-color:azure;
+        color: blueviolet; 
+    }
+
+    table#tb1 tr:nth-child(even){
+        background-color: aqua;
+    }
+    table#tb1 tr:nth-child(odd){
+        background-color: blue;
+    }
+
+</style>
+
+    <body>
+        <table id="tb1">
+            <tr>
+                <th>Task Name</th>
+                <th>Task Due Date</th>
+                <th>Task Description</th>
+            </tr>
+            <!-- Next line should run by the server -->
+            <% for(i=0;i<tasks.length;i++){ %>   
+                <tr>
+                    <td> <%= tasks[i].taskName %> </td>
+                    <td> <%= tasks[i].taskDueDate %> </td>
+                    <td> <%= tasks[i].taskDescription %> </td>
+                </tr>    
+            <% }%>
+        </table>
+        <h2>Click<a href="/">HERE</a>To Resturn Homepage</h2>
+    </body>
+</html>
