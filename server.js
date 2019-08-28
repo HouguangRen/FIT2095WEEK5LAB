@@ -4,9 +4,9 @@ let app = express();
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-let bodyparse = require('body-parser');
+// let bodyparse = require('body-parser');
 
-app.use(bodyparse.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false}));
 app.use(express.static('img'));
 
 var db = [];
