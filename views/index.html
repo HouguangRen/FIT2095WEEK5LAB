@@ -1,7 +1,17 @@
 <!DOCTYPE html>
+<head>
+        <link rel='stylesheet' href = 'styles.css'>
+    </head>
     <body>
-        <img src = "Apple.png" width="200"/><br/>
-        <a href="/addNewTask">Add New Task</a><br/>
-        <a href="/listTasks">List Task</a>
+        <a href="/"><img src = "Apple.png" width="200"/></a><br/>
+        <a href="/newTask">Add New Task</a><br/>
+        <a href="/update">update</a><br/>
+        <a href="/delete">Delete Task</a></br>
+        <form action="/deleteAll" method="POST">
+            Delete Compelet
+            <input type="submit" value="Submit" /> </br>
+        </form>
+        <a href="/listTasks">List Task</a></br>
+
     </body>
 </html>

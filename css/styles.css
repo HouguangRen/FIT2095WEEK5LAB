@@ -1,0 +1,18 @@
+body{
+    background-color: blue;
+}
+table#tb1{
+    width:100%;
+}
+
+table#tb1 th{
+    background-color:azure;
+    color: blueviolet; 
+}
+
+table#tb1 tr:nth-child(even){
+    background-color: aqua;
+}
+table#tb1 tr:nth-child(odd){
+    background-color: blue;
+}

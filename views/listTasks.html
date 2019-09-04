@@ -1,41 +1,31 @@
 <!DOCTYPE html>
-
-<style>
-    table#tb1{
-        width:100%;
-    }
-
-    table#tb1 th{
-        background-color:azure;
-        color: blueviolet; 
-    }
-
-    table#tb1 tr:nth-child(even){
-        background-color: aqua;
-    }
-    table#tb1 tr:nth-child(odd){
-        background-color: blue;
-    }
-
-</style>
-
+<head>
+        <link rel='stylesheet' href = 'styles.css'>
+    </head>
     <body>
+        <a href="/"><img src = "Apple.png" width="200"/></a><br/>
         <table id="tb1">
             <tr>
+                <th>Task ID</th>
                 <th>Task Name</th>
+                <th>Assign To</th>
                 <th>Task Due Date</th>
+                <th>Task Status</th>
                 <th>Task Description</th>
             </tr>
-            <!-- Next line should run by the server -->
             <% for(i=0;i<tasks.length;i++){ %>   
                 <tr>
-                    <td> <%= tasks[i].taskName %> </td>
-                    <td> <%= tasks[i].taskDueDate %> </td>
+                    <td> <%= tasks[i]._id %> </td>
+                    <td> <%= tasks[i].name %> </td>
+                    <td> <%= tasks[i].assignName %> </td>
+                    <td> <%= tasks[i].dueDate %> </td>
+                    <td> <%= tasks[i].taskStatus %> </td>
                     <td> <%= tasks[i].taskDescription %> </td>
                 </tr>    
             <% }%>
         </table>
-        <h2>Click<a href="/">HERE</a>To Resturn Homepage</h2>
-        <h2><a href="/addNewTasks">addNewTasks</a></h2>
+        <a href="/newTask">Add New Task</a><br/>
+        <a href="/update">update</a><br/>
+        <a href="/delete">Delete Task</a></br>
     </body>
 </html>
