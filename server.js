@@ -76,7 +76,8 @@ app.post('/deleteTask', function (req, res) {
 });
 
 app.post('/deleteAll',function(req,res){
-    col.deleteMany({taskStatus:"Complete"}, function (err, obj) {
+    let curDate = new Date();
+    col.deleteMany({taskStatus:"Complete"},{$lt:curDate}, function (err, obj) {
         console.log(obj.result);
       });
       res.redirect('/listTasks');
@@ -84,8 +85,8 @@ app.post('/deleteAll',function(req,res){
 
 app.post('deleteOldComplete',function(req,res){
     var d = new Date();
-    var curDate = d.getFullYear()+"-"+(d.getMonth())+"-"+d.getDate();
-    col.deleteMany({taskStatus:"Complete"},{dueDate:{$lt:curDate}},function (err, obj) {
+    //var curDate = d.getFullYear()+"-"+(d.getMonth())+"-"+d.getDate();
+    col.deleteMany({taskStatus:"Complete"},{$lt:curDate},function (err, obj) {
         console.log(obj.result);
       });
       res.redirect('/listTasks');
