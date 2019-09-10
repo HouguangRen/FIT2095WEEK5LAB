@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <link rel='stylesheet' href = 'styles.css'>
+</head>
+    <body>
+        <a href="/"><img src = "Apple.png" width="200"/></a><br/>
+        <h1>
+            Add New Developer
+        </h1>
+        <form action="/addNewDeveloper" method="POST">
+            Developer First Name: <input type="text" method = "POST" name = "firstName"/><br/>
+            Developer Last Name: <input type="text" method = "POST" name = "lastName"/><br/>
+            Level:
+            <select name="level">
+            <option value="">Select</option>
+            <option value="BEGINNER">Beginner</option>
+            <option value="EXPERT">Expert</option>
+            </select><br/>
+            State <input type="text" method = "POST" name = "state"/><br/>
+            Suburb <input type="text" method = "POST" name = "suburb"/><br/>
+            Street <input type="text" method = "POST" name = "street"/><br/>
+            Unit <input type="text" method = "POST" name = "unit"/><br/>
+            <button type="submit">Add</button>
+        </form>
+        <a href="/update">update</a><br/>
+        <a href="/delete">Delete Task</a></br>
+        <a href="/listTasks">List Task</a></br>
+    </body>
+</html>

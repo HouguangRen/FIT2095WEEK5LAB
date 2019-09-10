@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+        <link rel='stylesheet' href = 'styles.css'>
+    </head>
+    <body>
+        <a href="/"><img src = "Apple.png" width="200"/></a><br/>
+        <table id="tb1">
+            <tr>
+                <th>Developer ID</th>
+                <th>Developer Name</th>
+                <th>Level</th>
+                <th>Address</th>
+            </tr>
+            <% for(i=0;i<developers.length;i++){ %>
+                <tr>
+                    <td> <%= developers[i]._id %> </td>
+                    <td> <%= developers[i].name %> </td>
+                    <td> <%= developers[i].level %> </td>
+                    <td> <%= developers[i].address %> </td>
+                </tr>    
+            <% }%>
+        </table>
+        <a href="/newTask">Add New Task</a><br/>
+        <a href="/update">update</a><br/>
+        <a href="/delete">Delete Task</a></br>
+    </body>
+</html>
