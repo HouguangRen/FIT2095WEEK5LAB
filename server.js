@@ -8,7 +8,7 @@ var developer = require('./models/developer');
 mongoose.set('useNewUrlParser',true);
 mongoose.set('useUnifiedTopology',true);
 
-// let mongodb = require('mongodb');
+let mongodb = require('mongodb');
 // let MongoClient = mongodb.MongoClient;
 // let url = 'mongodb://localhost:27017/Week7LabDB';
 mongoose.connect('mongodb://localhost:27017/Week7LabDB',function(err){
@@ -77,9 +77,6 @@ app.post('/addNewTask',function(req,res){
 
 app.post('/updateTask',function(req,res){
     let taskDetails = req.body;
-    // let filter = {_id: new mongodb.Date(taskDetails.taskID)};
-    // let theUpdate = { $set: { taskStatus: taskDetails.ntaskStatus} };
-    // db.collection('task').updateOne(filter, theUpdate);
     task.updateOne({_id:taskDetails.taskID},{$set:{taskStatus: taskDetails.ntaskStatus}},function (err, doc) {
         console.log(doc);
     });
@@ -98,10 +95,6 @@ app.get('/delete',function(req,res){
 
 app.post('/deleteTask', function (req, res) {
     let taskDetails = req.body;
-    // let filter = {_id: new mongodb.ObjectID(taskDetails.taskID)};
-    // col.deleteOne(filter, function (err, obj) {
-    //     console.log(obj.result);
-    //   });
     task.deleteOne({_id: new mongodb.ObjectID(taskDetails.taskID)},function (err, doc) {
         console.log(doc);
     })
@@ -172,6 +165,17 @@ app.get('/listDevelopers',function(req,res){
         }else{
         res.render("listDevelopers",{developers: data});
         }
+    })
+});
+
+
+//////////////////////////////////////EXTRA TASK//////////////////////////////////////
+
+
+app.get('/:oldfirstname/:newfirstname',function(req,res){
+    developer.updateMany({'name.firstName':req.params.oldfirstname },{$set:{'name.firstName':req.params.newfirstname}},function (err, doc) {
+    console.log(doc);
+    res.redirect('/listDevelopers');
     })
 });
 
